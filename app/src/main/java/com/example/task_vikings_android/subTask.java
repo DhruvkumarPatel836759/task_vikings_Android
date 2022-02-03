@@ -1,5 +1,6 @@
 package com.example.task_vikings_android;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -44,10 +45,20 @@ public class subTask extends AppCompatActivity {
             mRecyclerView = findViewById(R.id.recyclerView);
             mRecyclerView.setHasFixedSize(true);
             mLayoutManager = new LinearLayoutManager(this);
-            mAdapter = new ToFillTask_ListAdapter(userlist);
+            mAdapter = new ToFillTask_ListAdapter(userlist, new ToFillTask_ListAdapter.ItemClickListner() {
+                @Override
+                public void OnItemClick(User user) {
+                    Toast.makeText(subTask.this, user.getTitle(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),toFillTask.class);
+                    intent.putExtra("Title " ,user.getTitle());
+                    startActivity(intent);
+                }
+            });
 
             mRecyclerView.setLayoutManager(mLayoutManager);
             mRecyclerView.setAdapter(mAdapter);
+
+
         }
     }
 }

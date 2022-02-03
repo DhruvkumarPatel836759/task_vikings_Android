@@ -1,53 +1,79 @@
 package com.example.task_vikings_android;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class toFillTitle_ListAdapter extends ArrayAdapter<User> {
-    private LayoutInflater myLayoutInflator;
-    private ArrayList<User> users;
-    private int myViewResourceId;
+public class toFillTitle_ListAdapter extends RecyclerView.Adapter<toFillTitle_ListAdapter.ExampleViewHolder> {
+    private ArrayList<User> mUserList;
+    private toFillTitle_ListAdapter.ItemClickListner mItemListner;
 
-    public toFillTitle_ListAdapter(Context context, int textViewResouceId, ArrayList<User> users){
-        super(context,textViewResouceId,users);
-        this.users = users;
-        myLayoutInflator = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        myViewResourceId = textViewResouceId;
-    }
-    public View getView(int position, View convertView, ViewGroup parents){
-        convertView = myLayoutInflator.inflate(myViewResourceId,null);
-
-        User user = users.get(position);
-
-        if (user != null){
-            TextView title = (TextView) convertView.findViewById(R.id.titleTL);
-//            TextView description = (TextView) convertView.findViewById(R.id.descriptionShow);
-//            TextView date = (TextView) convertView.findViewById(R.id.dateShow);
-//            TextView time = (TextView) convertView.findViewById(R.id.timeShow);
-//            TextView event = (TextView) convertView.findViewById(R.id.eventShow);
-
-            if (title != null) {
-                title.setText(user.getTitle());
-            }
-//            if (description != null) {
-//                description.setText(user.getDescription());
-//            }
-//            if (date != null) {
-//                date.setText(user.getDate());
-//            }
-//            if (time != null) {
-//                time.setText(user.getTime());
-//            }
-//            if (event != null) {
-//                event.setText(user.getEvent());
-//            }
+    public static class ExampleViewHolder extends RecyclerView.ViewHolder{
+        TextView title;
+        TextView description;
+        TextView date;
+        TextView time;
+        TextView event;
+        public ExampleViewHolder(@NonNull View itemView) {
+            super(itemView);
+            title = itemView.findViewById(R.id.titleTL);
+            description = itemView.findViewById(R.id.descriptionShow);
+            date = itemView.findViewById(R.id.dateShow);
+            time = itemView.findViewById(R.id.timeShow);
+            event = itemView.findViewById(R.id.eventShow);
         }
-        return convertView;
     }
+
+    public toFillTitle_ListAdapter(ArrayList<User> userList, toFillTitle_ListAdapter.ItemClickListner itemClickListner){
+        mUserList = userList;
+        this.mItemListner = itemClickListner;
+    }
+
+    @NonNull
+    @Override
+    public toFillTitle_ListAdapter.ExampleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.title_list,parent,false);
+        ExampleViewHolder evh = new ExampleViewHolder(v);
+        return evh;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull toFillTitle_ListAdapter.ExampleViewHolder holder, int position) {
+        User currentItem = mUserList.get(position);
+
+        if (holder.title != null) {
+            holder.title.setText(currentItem.getTitle());
+        }
+        if (holder.description != null) {
+            holder.description.setText(currentItem.getDescription());
+        }
+        if (holder.date != null) {
+            holder.date.setText(currentItem.getDate());
+        }
+        if (holder.time != null) {
+            holder.time.setText(currentItem.getTime());
+        }
+        if (holder.event != null) {
+            holder.event.setText(currentItem.getEvent());
+        }
+
+        holder.itemView.setOnClickListener(view -> {
+            mItemListner.OnItemClick(mUserList.get(position));
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return mUserList.size();
+    }
+    public interface ItemClickListner{
+        void OnItemClick(User user);
+    }
+
 }

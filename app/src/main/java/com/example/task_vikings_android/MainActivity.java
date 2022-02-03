@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button button;
 
+    private RecyclerView mRecyclerViewCat;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
 
     FloatingActionButton mAddFab, mAddAlarmFab, addTaskFab;
@@ -49,9 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         todoList = new ArrayList<>();
 
-        listView = findViewById(R.id.listView);
+//        listView = findViewById(R.id.recyclerViewCat);
 
-        listView.setAdapter(arrayAdapter);
+//        listView.setAdapter(arrayAdapter);
 
             button = findViewById(R.id.button);
 
@@ -100,6 +105,8 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
+
+
           addTaskFab.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
@@ -129,9 +136,22 @@ public class MainActivity extends AppCompatActivity {
                         data.getString(5));
                 userlist.add(user);
             }
-            toFillTitle_ListAdapter adapter = new toFillTitle_ListAdapter(this,R.layout.title_list,userlist);
-            listView = findViewById(R.id.listView);
-            listView.setAdapter(adapter);
+            mRecyclerViewCat = findViewById(R.id.recyclerViewCat);
+            mRecyclerViewCat.setHasFixedSize(true);
+            mLayoutManager = new LinearLayoutManager(this);
+            mAdapter = new toFillTitle_ListAdapter(userlist, new toFillTitle_ListAdapter.ItemClickListner() {
+                @Override
+                public void OnItemClick(User user) {
+                    Toast.makeText(MainActivity.this, user.getTitle(), Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(),subTask.class);
+                    intent.putExtra("Title " ,user.getTitle());
+                    startActivity(intent);
+                }
+            });
+
+            mRecyclerViewCat.setLayoutManager(mLayoutManager);
+            mRecyclerViewCat.setAdapter(mAdapter);
+
         }
 
     }
@@ -166,4 +186,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this,subTask.class);
         startActivity(intent);
     }
+
 }

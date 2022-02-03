@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class ToFillTask_ListAdapter extends RecyclerView.Adapter<ToFillTask_ListAdapter.ExampleViewHolder> {
     private ArrayList<User> mUserList;
+    private ItemClickListner mItemListner;
+
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
         TextView title;
         TextView description;
@@ -28,8 +30,9 @@ public class ToFillTask_ListAdapter extends RecyclerView.Adapter<ToFillTask_List
         }
     }
 
-    public ToFillTask_ListAdapter(ArrayList<User> userList){
+    public ToFillTask_ListAdapter(ArrayList<User> userList,ItemClickListner itemClickListner){
         mUserList = userList;
+        this.mItemListner = itemClickListner;
     }
 
     @NonNull
@@ -59,12 +62,18 @@ public class ToFillTask_ListAdapter extends RecyclerView.Adapter<ToFillTask_List
         if (holder.event != null) {
             holder.event.setText(currentItem.getEvent());
         }
+
+        holder.itemView.setOnClickListener(view -> {
+            mItemListner.OnItemClick(mUserList.get(position));
+        });
     }
 
     @Override
     public int getItemCount() {
         return mUserList.size();
     }
-
+    public interface ItemClickListner{
+        void OnItemClick(User user);
+    }
 
 }

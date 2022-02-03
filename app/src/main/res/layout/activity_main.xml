@@ -98,8 +98,8 @@
             app:layout_constraintEnd_toStartOf="@+id/add_task_fab"
             app:layout_constraintTop_toTopOf="@+id/add_task_fab" />
 
-        <ListView
-            android:id="@+id/listView"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewCat"
             android:layout_width="377dp"
             android:layout_height="452dp"
             android:layout_marginStart="1dp"

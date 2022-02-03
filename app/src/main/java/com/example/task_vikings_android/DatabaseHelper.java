@@ -29,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP IF TABLE EXISTS " + TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
     }
 
@@ -41,6 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL4, fdate);
         contentValues.put(COL5, fTime);
         contentValues.put(COL6, event);
+
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
