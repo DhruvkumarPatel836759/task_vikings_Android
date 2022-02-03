@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Task_vikings_android">
         <activity
+            android:name=".subTask"
+            android:exported="false" />
+        <activity
+            android:name=".toFillTask"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

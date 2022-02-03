@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FAFAFA"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingTop="30dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="50dp">
+
+        <TextView
+            fontPath="fonts/nunito_extra_bold.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="#00BCD4"
+            android:text="Add a task"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:alpha="0.8"
+            android:text="Fill the details below in order to add your task"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            android:text="Task title"
+            android:textColor="#000000"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/addTaskTitle"
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:minHeight="48dp"
+
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#8BC34A"
+            android:textSize="14sp"
+            tools:ignore="MissingPrefix,SpeakableTextPresentCheck" />
+
+        <TextView
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            android:text="Task description"
+            android:textColor="#070202"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/addTaskDescription"
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:padding="10dp"
+
+            android:singleLine="true"
+            android:textColor="#8BC34A"
+            android:textColorHighlight="#8BC34A"
+            android:textSize="14sp"
+            tools:ignore="MissingPrefix,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+        <TextView
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            android:text="Task date"
+            android:textColor="#040000"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/taskDate"
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:minHeight="48dp"
+
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#8BC34A"
+            android:textColorHighlight="#8BC34A"
+            android:textSize="14sp"
+            tools:ignore="MissingPrefix,SpeakableTextPresentCheck" />
+
+        <TextView
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            android:text="Task time"
+            android:textColor="#050101"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/taskTime"
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:minHeight="48dp"
+
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#8BC34A"
+            android:textColorHighlight="#8BC34A"
+            android:textSize="14sp"
+            tools:ignore="MissingPrefix,SpeakableTextPresentCheck" />
+
+        <TextView
+            android:id="@+id/textView2"
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="30dp"
+            android:text="Task Event"
+            android:textColor="#050101"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/taskEvent"
+            fontPath="fonts/nunito_light.ttf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:minHeight="48dp"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#8BC34A"
+            android:textColorHighlight="#8BC34A"
+            android:textSize="14sp"
+            tools:ignore="MissingPrefix,SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/addTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+
+            android:text="Add task" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+
+            android:scaleType="centerCrop" />
+
+    </LinearLayout>
+</ScrollView>
