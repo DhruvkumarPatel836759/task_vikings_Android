@@ -15,18 +15,18 @@ public class toFillTitle_ListAdapter extends RecyclerView.Adapter<toFillTitle_Li
     private toFillTitle_ListAdapter.ItemClickListner mItemListner;
 
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
-        TextView title;
-        TextView description;
-        TextView date;
-        TextView time;
-        TextView event;
+          TextView title;
+//        TextView description;
+//        TextView date;
+//        TextView time;
+//        TextView event;
         public ExampleViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.titleTL);
-            description = itemView.findViewById(R.id.descriptionShow);
-            date = itemView.findViewById(R.id.dateShow);
-            time = itemView.findViewById(R.id.timeShow);
-            event = itemView.findViewById(R.id.eventShow);
+//            description = itemView.findViewById(R.id.descriptionShow);
+//            date = itemView.findViewById(R.id.dateShow);
+//            time = itemView.findViewById(R.id.timeShow);
+//            event = itemView.findViewById(R.id.eventShow);
         }
     }
 
@@ -50,18 +50,18 @@ public class toFillTitle_ListAdapter extends RecyclerView.Adapter<toFillTitle_Li
         if (holder.title != null) {
             holder.title.setText(currentItem.getTitle());
         }
-        if (holder.description != null) {
-            holder.description.setText(currentItem.getDescription());
-        }
-        if (holder.date != null) {
-            holder.date.setText(currentItem.getDate());
-        }
-        if (holder.time != null) {
-            holder.time.setText(currentItem.getTime());
-        }
-        if (holder.event != null) {
-            holder.event.setText(currentItem.getEvent());
-        }
+//        if (holder.description != null) {
+//            holder.description.setText(currentItem.getDescription());
+//        }
+//        if (holder.date != null) {
+//            holder.date.setText(currentItem.getDate());
+//        }
+//        if (holder.time != null) {
+//            holder.time.setText(currentItem.getTime());
+//        }
+//        if (holder.event != null) {
+//            holder.event.setText(currentItem.getEvent());
+//        }
 
         holder.itemView.setOnClickListener(view -> {
             mItemListner.OnItemClick(mUserList.get(position));
@@ -75,5 +75,4 @@ public class toFillTitle_ListAdapter extends RecyclerView.Adapter<toFillTitle_Li
     public interface ItemClickListner{
         void OnItemClick(User user);
     }
-
 }

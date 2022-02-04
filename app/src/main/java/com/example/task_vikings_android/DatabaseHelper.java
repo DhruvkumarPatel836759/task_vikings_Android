@@ -24,7 +24,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 " TITLE TEXT, DESCRIPTION TEXT, DATE TEXT,TIME TEXT,EVENT TEXT)";
-        db.execSQL(createTable);
     }
 
     @Override
@@ -42,7 +41,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(COL5, fTime);
         contentValues.put(COL6, event);
 
-
         long result = db.insert(TABLE_NAME, null, contentValues);
 
         //if date as inserted incorrectly it will return -1
@@ -52,13 +50,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
-
     //query for 1 week repeats
     public Cursor getListContents() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         return data;
     }
-
 
 }

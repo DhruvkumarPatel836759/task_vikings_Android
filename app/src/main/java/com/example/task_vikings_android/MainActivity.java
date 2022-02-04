@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        listView.setAdapter(arrayAdapter);
 
-            button = findViewById(R.id.button);
+
 
             mAddFab = findViewById(R.id.add_fab);
             mAddAlarmFab = findViewById(R.id.add_alarm_fab);
@@ -74,14 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
             isAllFabsVisible = false;
 
-//            --------------------------------
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-    openTest();
-            }
-        });
-//        --------------------------------------
             mAddFab.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
@@ -182,9 +174,4 @@ public class MainActivity extends AppCompatActivity {
         });
         return super.onCreateOptionsMenu(menu);
     }
-    public void openTest(){
-        Intent intent = new Intent(this,subTask.class);
-        startActivity(intent);
-    }
-
 }

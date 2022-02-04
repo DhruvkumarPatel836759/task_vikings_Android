@@ -14,6 +14,7 @@ public class ToFillTask_ListAdapter extends RecyclerView.Adapter<ToFillTask_List
     private ArrayList<User> mUserList;
     private ItemClickListner mItemListner;
 
+
     public static class ExampleViewHolder extends RecyclerView.ViewHolder{
         TextView title;
         TextView description;
