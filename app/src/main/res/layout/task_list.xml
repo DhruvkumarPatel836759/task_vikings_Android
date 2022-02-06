@@ -43,24 +43,25 @@
                 android:layout_gravity="center"
                 android:text="18"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
 
             <TextView
-                android:id="@+id/month"
+                android:id="@+id/monthShow"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:alpha="0.5"
                 android:text="Nov"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/timeShow"
                 android:layout_width="72dp"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:textColor="#000000" />
+                android:text="time"
+                android:textColor="#000000"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
