@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginLeft="5dp"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginLeft="@dimen/pending_card_view_margin_left"
+        android:layout_marginRight="@dimen/pending_card_view_margin_right"
+        android:layout_marginTop="@dimen/pending_card_view_margin_top"
+        android:layout_marginBottom="@dimen/pending_card_view_margin_bottom"
+        android:elevation="@dimen/pending_card_view_elevation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/each_pending_todo_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="267dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="90">
+
+                <TextView
+                    android:id="@+id/todo_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_weight="30"
+                    android:text="@string/todo_info_demo_tag_text"
+                    android:textColor="@color/colorAccentGreen"
+                    android:textSize="18dp"
+                    android:textStyle="italic|bold" />
+
+                <TextView
+                    android:id="@+id/pending_todo_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/pending_todo_title_left_margin"
+                    android:layout_marginTop="@dimen/pending_todo_title_top_margin"
+                    android:layout_marginRight="@dimen/pending_todo_title_right_margin"
+                    android:layout_marginBottom="@dimen/pending_todo_title_bottom_margin"
+                    android:layout_weight="30"
+                    android:text="@string/pending_todo_demo_title"
+                    android:textSize="@dimen/pending_todo_title_text_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/pending_todo_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/pending_todo_title"
+                    android:layout_marginLeft="@dimen/pending_todo_content_left_margin"
+                    android:layout_marginRight="@dimen/pending_todo_content_right_margin"
+                    android:layout_marginBottom="@dimen/pending_todo_content_bottom_margin"
+                    android:layout_weight="30"
+                    android:text="@string/pending_todo_demo_content"
+                    android:textSize="15dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/todo_option_margin_top"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/make_completed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/completd_to_img_margin_right"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_done_task" />
+
+                <ImageView
+                    android:id="@+id/option"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_task_options" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/pending_todo_info_section_margin_left"
+        android:layout_marginRight="@dimen/pending_todo_info_section_margin_right"
+        android:layout_marginBottom="@dimen/pending_todo_info_section_bottom_margin"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/todo_date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="@dimen/todo_info_section_margin_right"
+            android:text="@string/todo_info_demo_date_text"
+            android:textColor="@color/colorPrimaryViolete"
+            android:layout_marginLeft="8dp"
+            android:textSize="@dimen/todo_info_section_text_size" />
+
+        <TextView
+            android:id="@+id/todo_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimaryDarkRed"
+            android:text="@string/todo_info_demo_time_from_text"
+            android:textSize="@dimen/todo_info_section_text_size" />
+
+    </LinearLayout>
+</LinearLayout>

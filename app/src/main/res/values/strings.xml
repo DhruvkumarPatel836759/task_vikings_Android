@@ -1,3 +1,97 @@
 <resources>
-    <string name="app_name">task_vikings_android</string>
+    <string name="app_name">Todo Manager</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="app_title">Tasks</string>
+    <string name="complete_todo_activity_title">Completed Tasks</string>
+    <string name="all_tags_title">Categories</string>
+
+
+    <string name="nav_pending_todos_text">Pending tasks</string>
+    <string name="nav_completed_todos_text">Completed tasks</string>
+    <string name="nav_tags_text">Categories</string>
+
+    <string name="no_pending_todo_text">No Pending Tasks Available</string>
+    <string name="pending_todo_demo_title">Pending tasks demo title</string>
+    <string name="pending_todo_demo_content">Pending tasks demo content</string>
+    <string name="tag_title_demo_text">Demo Categories title</string>
+
+    <string name="completed_todo_demo_title">Completed task demo title</string>
+    <string name="completed_todo_demo_content">Completed task demo content</string>
+
+    <string name="todo_info_demo_tag_text">Programming</string>
+    <string name="todo_info_demo_date_text">25 Dec, 2017</string>
+    <string name="todo_info_demo_time_from_text">10:20 AM</string>
+
+    <string name="no_completed_todo_text">No Completed Task Available</string>
+    <string name="no_tags_available_text">No Categories Available</string>
+
+    <string name="option_completed_search_text">Search</string>
+    <string name="option_completed_delete_text">Delete All</string>
+
+    <string name="option_tags_search_text">Search</string>
+
+    <string name="option_save_todo_text">Save Tasks</string>
+    <string name="option_tag_edit_text">Edit</string>
+    <string name="option_tag_del_text">Remove</string>
+
+    <string name="option_pending_search_text">Search</string>
+    <string name="option_pending_completed_text">Completed Tasks</string>
+
+    <string name="option_all_tags_text">All Categories</string>
+
+    <string name="add_todo_dialog_title">Add New Task</string>
+    <string name="save_todo_dialog_title">Save Task</string>
+    <string name="edit_todo_dialog_title">Edit Task</string>
+    <string name="todo_title_hint">Enter task title</string>
+    <string name="todo_content_hint">Enter task content</string>
+    <string name="todo_date_hint">Enter task date</string>
+    <string name="todo_time_hint">Enter task time</string>
+    <string name="add_todo_dialog_positive_text">Add New Task</string>
+    <string name="add_todo_dialog_cancel_text">Cancel</string>
+    <string name="todo_title_add_success_msg">Task added successfully !</string>
+
+    <string name="add_tag_dialog_title">Add New Categories</string>
+    <string name="edit_tag_dialog_title">Edit Categories</string>
+    <string name="add_tag_dialog_positive_text">Add New Categories</string>
+    <string name="edit_tag_dialog_positive_text">Save</string>
+    <string name="add_tag_dialog_cancel_text">Cancel</string>
+    <string name="add_tag_text_text_color_text">Categories Text Color</string>
+    <string name="add_tag_text_background_color_text">Categories Background Color</string>
+    <string name="tag_title_add_success_msg">Categories added successfully !</string>
+    <string name="tag_delete_dialog_title">Categories delete Confirmation</string>
+    <string name="tag_delete_dialog_msg">If you delete then your tasks associated with this categories will also be delete.Do you really want to delete ?</string>
+    <string name="tag_delete_cancel">Cancel</string>
+    <string name="tag_delete_yes">Delete</string>
+    <string name="tag_deleted_success">Categories deleted successfully !</string>
+    <string name="tag_no_delete">Categories not deleted !</string>
+    <string name="edit_tag_dialog_cancel_text">Cancel</string>
+    <string name="tag_edit_yes">Save</string>
+    <string name="tag_edit_cancel">Cancel</string>
+    <string name="tag_saved_success">Categories saved successfully !</string>
+    <string name="tag_no_save">Categories not changed !</string>
+    <string name="tag_create_dialog_title_text">Categories create dialog</string>
+    <string name="no_tag_in_the_db_text">There is no Categories in the database.You need to create a Categories first to continue.</string>
+    <string name="create_new_tag">Create New Categories</string>
+
+
+    <string name="tag_title_hint">Enter Categories title</string>
+    <string name="edit_tag_title_hint">Enter new Categories title</string>
+    <string name="pref_category_title_about">Developer Info</string>
+
+
+    <string-array name="theme_names">
+        <item>Default</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Violete</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>Default</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Violete</item>
+    </string-array>
+
 </resources>

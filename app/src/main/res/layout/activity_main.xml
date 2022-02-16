@@ -1,139 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    >
 
-        <!--    <androidx.constraintlayout.widget.ConstraintLayout-->
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.94"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:context=".MainActivity"
-        tools:ignore="HardcodedText">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-        <!--This will be the parent Floating Action Button-->
-        <!--After the implementation the Floating Action Button
-             at the bottom right corner-->
-        <!--After clicking the above button the following two buttons
-            will pop up. So this button is considered as parent FAB-->
-
-        <!--Floating action button for add alarm-->
-        <!--Make sure that you are constraining this
-            button to the parent button-->
-
-        <!--Action name text for the add alarm button-->
-        <!--Make sure that you are constraining this Text to
-            the add Alarm FAB button-->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginBottom="16dp"
-            android:src="@drawable/uparrow"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.915"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_alarm_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toTopOf="@+id/add_fab"
-            app:layout_constraintEnd_toEndOf="@+id/add_fab"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/add_fab"
-            app:srcCompat="@drawable/alaram"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/add_alarm_action_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="Add Alarm"
-            app:layout_constraintBottom_toBottomOf="@+id/add_alarm_fab"
-            app:layout_constraintEnd_toStartOf="@+id/add_alarm_fab"
-            app:layout_constraintTop_toTopOf="@+id/add_alarm_fab" />
-
-        <!--Floating action button for add person-->
-        <!--Make sure that you are constraining this
-            button to the add Alarm FAB button-->
-
-        <!--Action name text for the add person button-->
-        <!--Make sure that you are constraining this Text
-            to the add Person FAB button-->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/add_task_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            app:fabSize="normal"
-            app:layout_constraintBottom_toTopOf="@+id/add_alarm_fab"
-            app:layout_constraintEnd_toEndOf="@+id/add_alarm_fab"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/add_alarm_fab"
-            app:srcCompat="@drawable/add_task_lable"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-        <TextView
-            android:id="@+id/add_person_action_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:text="Add Task"
-            app:layout_constraintBottom_toBottomOf="@+id/add_task_fab"
-            app:layout_constraintEnd_toStartOf="@+id/add_task_fab"
-            app:layout_constraintTop_toTopOf="@+id/add_task_fab" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="363dp"
-            android:layout_height="41dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="1dp"
-            android:text="there is list of tasks below That you need to complete"
-            android:textAlignment="center"
-            android:textAllCaps="true"
-            android:textColor="#040101"
-            android:textColorHighlight="#120202"
-            android:textColorHint="#1B0909"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerViewCat"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.514"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewCat"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="1dp"
-            android:layout_marginEnd="1dp"
-            android:layout_marginBottom="233dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-        <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
-
-        <!--    <ListView-->
-        <!--        android:layout_width="match_parent"-->
-        <!--        android:layout_height="match_parent"-->
-        <!--        android:id="@+id/listview"/>-->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/custom_toolbar_layout" />
+    </com.google.android.material.appbar.AppBarLayout>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        layout="@layout/content_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        />
+</LinearLayout>

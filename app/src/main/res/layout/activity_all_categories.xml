@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.task_vikings_android.activities.AllCategories">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <include android:id="@+id/toolbar" layout="@layout/custom_toolbar_layout"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/viewAllTags"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBar" />
+
+    <LinearLayout
+        android:id="@+id/no_tags_available"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/no_tags_icon"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_no_categories_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/no_tags_text"
+            android:layout_gravity="center"
+            android:textSize="@dimen/no_tags_available_size"
+            android:text="@string/no_tags_available_text"
+            android:textColor="@color/ic_tags_available_color"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/floating_button_add_todo_margin"
+        android:layout_marginLeft="@dimen/floating_button_add_todo_margin"
+        android:layout_marginTop="@dimen/floating_button_add_todo_margin"
+        android:layout_marginEnd="@dimen/floating_button_add_todo_margin"
+        android:layout_marginRight="@dimen/floating_button_add_todo_margin"
+        android:layout_marginBottom="@dimen/floating_button_add_todo_margin"
+        android:src="@drawable/ic_add_new_categories_icon" />
+</RelativeLayout>
