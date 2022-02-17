@@ -17,6 +17,7 @@
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/drawable/ic_baseline_add_24..xml" value="0.132" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.132" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.108" />
+        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/drawable/ic_launcher_icon_background.xml" value="0.184" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/drawable/ic_no_tags_icon.xml" value="0.132" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/drawable/ic_pending_todos.xml" value="0.129" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/drawable/ic_playlist_add_check.xml" value="0.2455" />
@@ -40,11 +41,15 @@
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/activity_toadd_task.xml" value="0.17255434782608695" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/add_new_categories_dialog.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/add_new_tag_dialog.xml" value="0.264" />
+        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/add_new_task_dialog.xml" value="0.14583333333333334" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/add_new_todo_dialog.xml" value="0.264" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/completed_task_options.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/content_main.xml" value="0.27113702623906705" />
+        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_all_categories_layout.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_all_tags_layout.xml" value="0.25" />
+        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_completed_task_layout.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_completed_todo_layout.xml" value="0.4" />
+        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_pending_task_layout.xml" value="0.264" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_pending_todo_layout.xml" value="0.4" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_toolbar_layout.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/edit_tag_dialog.xml" value="0.4" />
@@ -53,7 +58,7 @@
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/task_list.xml" value="0.4" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/title_list.xml" value="0.4" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/menu/categories_edit_del_option.xml" value="0.25" />
-        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/menu/completed_task_options.xml" value="0.1" />
+        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/menu/completed_task_options.xml" value="0.2" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/menu/menu.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/menu/navigation_menu.xml" value="0.24615384615384617" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/menu/pending_task_options.xml" value="0.24635416666666668" />
@@ -63,6 +68,7 @@
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/menu/vew_categories_option.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/menu/vew_tag_option.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.132" />
+        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_icon.xml" value="0.184" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1215" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/xml/app_preferences.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_stop.xml" value="0.1375" />

@@ -37,7 +37,6 @@ public class CompletedTasks extends AppCompatActivity {
         setContentView(R.layout.activity_completed_task);
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        SettingsHelper.applyThemeToolbar(findViewById(R.id.toolbar),this);
         setTitle(getString(R.string.complete_todo_activity_title));
         loadCompletedTodos();
     }
@@ -111,20 +110,20 @@ public class CompletedTasks extends AppCompatActivity {
     //showing the delete confirmation dialog
     private void deleteDialog(){
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setTitle("Todo delete confirmation");
-        builder.setMessage("Do you really want to delete all the completed todos ?");
+        builder.setTitle("Task delete confirmation");
+        builder.setMessage("Do you really want to delete all the completed Tasks ?");
         builder.setPositiveButton("Delete All", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if(taskDBHelper.removeCompletedTodos()){
                     startActivity(new Intent(CompletedTasks.this, CompletedTasks.class));
-                    Toast.makeText(CompletedTasks.this, "All Completed todo deleted successfully !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CompletedTasks.this, "All Completed Tasks deleted successfully !", Toast.LENGTH_SHORT).show();
                 }
             }
         }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Toast.makeText(CompletedTasks.this, "Todos not deleted !", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CompletedTasks.this, "Task not deleted !", Toast.LENGTH_SHORT).show();
             }
         }).create().show();
     }

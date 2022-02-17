@@ -44,7 +44,6 @@ public class AllCategories extends AppCompatActivity implements View.OnClickList
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
         setTitle(getString(R.string.all_tags_title));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        SettingsHelper.applyThemeToolbar(findViewById(R.id.toolbar),this);
         loadTags();
     }
 
@@ -125,12 +124,9 @@ public class AllCategories extends AppCompatActivity implements View.OnClickList
         LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.add_new_categories_dialog,null);
         builder.setView(view);
-//        SettingsHelper.applyThemeTextView((TextView)view.findViewById(R.id.add_tag_dialog_title),this);
         final TextInputEditText tagTitle=(TextInputEditText)view.findViewById(R.id.tag_title);
         final TextView cancel=(TextView)view.findViewById(R.id.cancel);
         final TextView addNewtag=(TextView)view.findViewById(R.id.add_new_tag);
-//        SettingsHelper.applyTextColor(cancel,this);
-//        SettingsHelper.applyTextColor(addNewtag,this);
 
         addNewtag.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,9 +136,9 @@ public class AllCategories extends AppCompatActivity implements View.OnClickList
                 boolean tagExists= categoriesDBHelper.tagExists(getTagTitle);
 
                 if(isTagEmpty){
-                    tagTitle.setError("Tag title required !");
+                    tagTitle.setError("Categories title required !");
                 }else if(tagExists){
-                    tagTitle.setError("Tag title already exists!");
+                    tagTitle.setError("Categories title already exists!");
                 }else {
                     if(categoriesDBHelper.addNewTag(new CategoriesModel(getTagTitle))){
                         Toast.makeText(AllCategories.this, R.string.tag_title_add_success_msg, Toast.LENGTH_SHORT).show();

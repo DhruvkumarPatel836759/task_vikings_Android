@@ -69,8 +69,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,
-        View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private RecyclerView pendingTodos;
     private LinearLayoutManager linearLayoutManager;
     private ArrayList<PendingTaskModel> pendingTaskModels;
@@ -101,10 +100,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar( (Toolbar) findViewById(R.id.toolbar));
-//        SettingsHelper.applyThemeToolbar(findViewById(R.id.toolbar),this);
         setTitle(getString(R.string.app_title));
-//        showDrawerLayout();
-//        navigationMenuInit();
         loadPendingTodos();
 
 
@@ -197,23 +193,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.pending_todos) {
-            startActivity(new Intent(this,MainActivity.class));
-        } else if (id == R.id.completed_todos) {
-            startActivity(new Intent(this, CompletedTasks.class));
-        } else if (id == R.id.tags) {
-            startActivity(new Intent(this, AllCategories.class));
-
-        }
-
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
 
     //show dialog if there is no tag in the database
     private void showDialog(){
@@ -228,7 +207,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }).setNegativeButton(R.string.tag_edit_cancel, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
             }
         }).create().show();
     }
@@ -247,7 +225,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.add_new_task_dialog,null);
         builder.setView(view);
-//        SettingsHelper.applyThemeTextView((TextView)view.findViewById(R.id.add_todo_dialog_title),this);
         final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.todo_title);
         final TextInputEditText todoContent=(TextInputEditText)view.findViewById(R.id.todo_content);
 
@@ -276,13 +253,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         mStartRec.setVisibility(View.GONE);
 
-
-
-
                     }catch(Exception e){
                         Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
-
                 }else{
                     requestPermission();
                 }
@@ -300,7 +273,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(MainActivity.this,"Recording has Stopped",Toast.LENGTH_LONG).show();
             }
         });
-
         mImageSelected=view.findViewById(R.id.imageSelected);
         rvList=view.findViewById(R.id.rvList);
 
@@ -308,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         rvList.setAdapter(adapter);
 
         Spinner todoTags=(Spinner)view.findViewById(R.id.todo_tag);
-        //stores all the tags title in string format
+        //stores all the Categories title in string format
         ArrayAdapter<String> tagsModelArrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, categoriesDBHelper.fetchTagStrings());
         //setting dropdown view resouce for spinner
         tagsModelArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -455,7 +427,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivityForResult(gallery, PICK_IMAGE);
             }
         });
-
         AlertDialog ad = builder.create();
         ad.show();
     }
@@ -517,8 +488,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             selectType = 2;
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
             if(data.getData()!=null){
-
-
                 try {
                     Uri mImageUri=data.getData();
                     mArrayUri.add(mImageUri);
@@ -553,7 +522,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     }
                     Log.v("TAG", "Selected Images" + mArrayUri.size());
-
                 }
             }
             mImageSelected.setVisibility(View.GONE);
@@ -562,7 +530,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-
+// to convert Image from bitmap to byte
     public  byte[] convertImageToByteArray(Bitmap bitmap){
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 30,stream);
@@ -621,7 +589,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-    //----------For Recording---------------
+    //----------For Recording------------------
     private  boolean isMicroPhonePresent(){// method to check presence of microphone
         if (this.getPackageManager().hasSystemFeature(PackageManager.FEATURE_MICROPHONE)){
             return  true;
