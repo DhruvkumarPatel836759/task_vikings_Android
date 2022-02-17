@@ -13,10 +13,6 @@ import com.example.task_vikings_android.models.PendingTaskModel;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by asifkhan on 12/30/17.
- */
-
 public class TaskDBHelper {
 
     private Context context;

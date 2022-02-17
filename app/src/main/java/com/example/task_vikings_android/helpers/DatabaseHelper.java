@@ -6,9 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.task_vikings_android.models.ImageModel;
 
-/**
- * Created by asifkhan on 12/29/17.
- */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION=1;
