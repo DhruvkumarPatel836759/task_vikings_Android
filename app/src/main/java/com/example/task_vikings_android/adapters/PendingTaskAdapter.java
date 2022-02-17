@@ -202,7 +202,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
         final View view=layoutInflater.inflate(R.layout.edit_task_dialog,null);
         builder.setView(view);
 //        SettingsHelper.applyThemeTextView((TextView)view.findViewById(R.id.edit_todo_dialog_title),context);
-        final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.todo_title);
+        final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.task_title);
         final TextInputEditText todoContent=(TextInputEditText)view.findViewById(R.id.todo_content);
         Spinner todoTags=(Spinner)view.findViewById(R.id.todo_tag);
         //stores all the tags title in string format

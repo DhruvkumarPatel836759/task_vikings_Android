@@ -57,7 +57,6 @@ import com.example.task_vikings_android.helpers.CategoriesDBHelper;
 import com.example.task_vikings_android.helpers.TaskDBHelper;
 import com.example.task_vikings_android.models.PendingTaskModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.ByteArrayOutputStream;
@@ -222,7 +221,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.add_new_task_dialog,null);
         builder.setView(view);
-        final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.todo_title);
+        final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.task_title);
         final TextInputEditText todoContent=(TextInputEditText)view.findViewById(R.id.todo_content);
 
         Button mUploadImg=view.findViewById(R.id.mUploadImg);
@@ -350,13 +349,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 //adding the todos
                 if(isTitleEmpty){
-                    todoTitle.setError("Todo title required !");
+                    todoTitle.setError("Task title required !");
                 }else if(isContentEmpty){
-                    todoContent.setError("Todo content required !");
+                    todoContent.setError("Task content required !");
                 }else if(isDateEmpty){
-                    todoDate.setError("Todo date required !");
+                    todoDate.setError("Task date required !");
                 }else if(isTimeEmpty){
-                    todoTime.setError("Todo time required !");
+                    todoTime.setError("Task time required !");
                 }else if(selectType==-1){
                     Toast.makeText(MainActivity.this, "Please upload image", Toast.LENGTH_SHORT).show();
                 }else{

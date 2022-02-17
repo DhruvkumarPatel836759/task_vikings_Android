@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/todo_title"
+                    android:id="@+id/task_title"
                     android:drawableLeft="@drawable/ic_add_new_task_title"
                     android:drawablePadding="@dimen/drawable_input_padding"
                     android:padding="@dimen/input_padding"
