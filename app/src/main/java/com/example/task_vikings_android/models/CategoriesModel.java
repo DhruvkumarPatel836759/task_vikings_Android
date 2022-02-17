@@ -1,8 +1,5 @@
 package com.example.task_vikings_android.models;
 
-/**
- * Created by asifkhan on 12/28/17.
- */
 
 public class CategoriesModel {
     private int tagID;

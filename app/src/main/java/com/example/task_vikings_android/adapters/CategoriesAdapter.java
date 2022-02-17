@@ -114,13 +114,12 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ta
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.edit_categories_dialog,null);
         builder.setView(view);
-//        SettingsHelper.applyThemeTextView((TextView)view.findViewById(R.id.edit_tag_dialog_title),context);
+
         final TextInputEditText tagEditTitle=(TextInputEditText)view.findViewById(R.id.edit_tag_title);
         tagEditTitle.setText(categoriesDBHelper.fetchTagTitle(tagID));
         final TextView cancel=(TextView)view.findViewById(R.id.cancel);
         final TextView editNewtag=(TextView)view.findViewById(R.id.edit_new_tag);
-//        SettingsHelper.applyTextColor(cancel,context);
-//        SettingsHelper.applyTextColor(editNewtag,context);
+
 
         editNewtag.setOnClickListener(new View.OnClickListener() {
             @Override

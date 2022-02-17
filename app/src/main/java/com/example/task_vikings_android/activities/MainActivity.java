@@ -55,10 +55,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setSupportActionBar( (Toolbar) findViewById(R.id.toolbar));
-//        SettingsHelper.applyThemeToolbar(findViewById(R.id.toolbar),this);
+
         setTitle(getString(R.string.app_title));
-//        showDrawerLayout();
-//        navigationMenuInit();
+
         loadPendingTodos();
     }
 
@@ -97,30 +96,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        if (drawer.isDrawerOpen(GravityCompat.START)) {
-//            drawer.closeDrawer(GravityCompat.START);
-//        } else {
-//            super.onBackPressed();
-//        }
-//    }
-
-    //add the drawer layout
-//    private void showDrawerLayout(){
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-//                this, drawer , R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-//        drawer.addDrawerListener(toggle);
-//        toggle.syncState();
-//    }
-
-//    //initialize navigation menu
-//    private void navigationMenuInit(){
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
-//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -183,8 +158,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
 
-//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-//        drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
@@ -220,15 +193,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LayoutInflater layoutInflater=(LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.add_new_task_dialog,null);
         builder.setView(view);
-//        SettingsHelper.applyThemeTextView((TextView)view.findViewById(R.id.add_todo_dialog_title),this);
+
         final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.todo_title);
         final TextInputEditText todoContent=(TextInputEditText)view.findViewById(R.id.todo_content);
         Spinner todoTags=(Spinner)view.findViewById(R.id.todo_tag);
         //stores all the tags title in string format
         ArrayAdapter<String> tagsModelArrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, categoriesDBHelper.fetchTagStrings());
-        //setting dropdown view resouce for spinner
+
         tagsModelArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        //setting the spinner adapter
+
         todoTags.setAdapter(tagsModelArrayAdapter);
         todoTags.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -279,8 +252,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         TextView cancel=(TextView)view.findViewById(R.id.cancel);
         TextView addTodo=(TextView)view.findViewById(R.id.add_new_todo);
-//        SettingsHelper.applyTextColor(cancel,this);
-//        SettingsHelper.applyTextColor(addTodo,this);
+
         addTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
@@ -34,9 +35,7 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/**
- * Created by asifkhan on 12/27/17.
- */
+
 
 public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.PendingDataHolder>{
     private ArrayList<PendingTaskModel> pendingTaskModels;
@@ -131,7 +130,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.edit_task_dialog,null);
         builder.setView(view);
-//        SettingsHelper.applyThemeTextView((TextView)view.findViewById(R.id.edit_todo_dialog_title),context);
+
         final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.todo_title);
         final TextInputEditText todoContent=(TextInputEditText)view.findViewById(R.id.todo_content);
         Spinner todoTags=(Spinner)view.findViewById(R.id.todo_tag);
@@ -205,8 +204,9 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
         });
         TextView cancel=(TextView)view.findViewById(R.id.cancel);
         TextView addTodo=(TextView)view.findViewById(R.id.add_new_todo);
-//        SettingsHelper.applyTextColor(cancel,context);
-//        SettingsHelper.applyTextColor(addTodo,context);
+
+
+
         addTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -272,6 +272,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
     public class PendingDataHolder extends RecyclerView.ViewHolder {
         TextView todoTitle,todoContent,todoTag,todoDate,todoTime;
         ImageView option,makeCompleted;
+        Button btn_image_button;
         public PendingDataHolder(View itemView) {
             super(itemView);
             todoTitle=(TextView)itemView.findViewById(R.id.pending_todo_title);
@@ -281,6 +282,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
             todoTime=(TextView)itemView.findViewById(R.id.todo_time);
             option=(ImageView)itemView.findViewById(R.id.option);
             makeCompleted=(ImageView)itemView.findViewById(R.id.make_completed);
+
         }
     }
 
