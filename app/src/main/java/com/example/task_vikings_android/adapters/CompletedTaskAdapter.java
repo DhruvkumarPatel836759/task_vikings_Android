@@ -15,9 +15,6 @@ import com.example.task_vikings_android.models.CompletedTaskModel;
 
 import java.util.ArrayList;
 
-/**
- * Created by asifkhan on 12/27/17.
- */
 
 public class CompletedTaskAdapter extends RecyclerView.Adapter<CompletedTaskAdapter.CompletedDataHolder>{
     private ArrayList<CompletedTaskModel> completedTaskModels;
@@ -41,7 +38,7 @@ public class CompletedTaskAdapter extends RecyclerView.Adapter<CompletedTaskAdap
         CompletedTaskModel completedTaskModel = completedTaskModels.get(position);
         holder.todoTitle.setPaintFlags(holder.todoTitle.getPaintFlags()| Paint.STRIKE_THRU_TEXT_FLAG);
         holder.todoTitle.setText(completedTaskModel.getTodoTitle());
-//        SettingsHelper.applyTextColor(holder.todoTitle,context);
+
         holder.todoContent.setText(completedTaskModel.getTodoContent());
         holder.todoTag.setText(completedTaskModel.getTodoTag());
         holder.todoDate.setText(completedTaskModel.getTodoDate());
