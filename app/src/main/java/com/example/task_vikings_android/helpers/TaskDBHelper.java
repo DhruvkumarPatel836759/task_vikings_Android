@@ -7,12 +7,18 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.task_vikings_android.models.CompletedTaskModel;
+import com.example.task_vikings_android.models.ImageModel;
 import com.example.task_vikings_android.models.PendingTaskModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
+/**
+ * Created by asifkhan on 12/30/17.
+ */
 
 public class TaskDBHelper {
+
     private Context context;
     private DatabaseHelper databaseHelper;
 
@@ -22,7 +28,7 @@ public class TaskDBHelper {
     }
 
     //add new todos into the database
-    public boolean addNewTodo(PendingTaskModel pendingTaskModel){
+    public long addNewTodo(PendingTaskModel pendingTaskModel){
         SQLiteDatabase sqLiteDatabase=this.databaseHelper.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put(DatabaseHelper.COL_TODO_TITLE, pendingTaskModel.getTodoTitle());
@@ -31,9 +37,10 @@ public class TaskDBHelper {
         contentValues.put(DatabaseHelper.COL_TODO_DATE, pendingTaskModel.getTodoDate());
         contentValues.put(DatabaseHelper.COL_TODO_TIME, pendingTaskModel.getTodoTime());
         contentValues.put(DatabaseHelper.COL_TODO_STATUS,DatabaseHelper.COL_DEFAULT_STATUS);
-        sqLiteDatabase.insert(DatabaseHelper.TABLE_TODO_NAME,null,contentValues);
+        contentValues.put(DatabaseHelper.COL_FILE_NAME,pendingTaskModel.getFileName());
+        long id = sqLiteDatabase.insert(DatabaseHelper.TABLE_TODO_NAME,null,contentValues);
         sqLiteDatabase.close();
-        return true;
+        return id;
     }
 
     //count todos from the database
@@ -68,6 +75,7 @@ public class TaskDBHelper {
             pendingTaskModel.setTodoTag(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TAG_TITLE)));
             pendingTaskModel.setTodoDate(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TODO_DATE)));
             pendingTaskModel.setTodoTime(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_TODO_TIME)));
+            pendingTaskModel.setFileName(cursor.getString(cursor.getColumnIndex(DatabaseHelper.COL_FILE_NAME)));
             pendingTaskModels.add(pendingTaskModel);
         }
         cursor.close();
@@ -198,5 +206,50 @@ public class TaskDBHelper {
         cursor.close();
         sqLiteDatabase.close();
         return time;
+    }
+
+
+
+
+    public long insertImageByTaskId(byte[] image,int taskId) {
+        SQLiteDatabase db = this.databaseHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(ImageModel.COLUMN_IMAGE_NAME, image);
+        values.put(ImageModel.COLUMN_TASK_ID, taskId);
+        long id = db.insert(ImageModel.TABLE_NAME, null, values);
+
+        db.close();
+        return id;
+    }
+
+    @SuppressLint("Range")
+    public List<ImageModel> getImagesByTask(int taskid) {
+        List<ImageModel> notes = new ArrayList<>();
+
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + ImageModel.TABLE_NAME + " WHERE " + ImageModel.COLUMN_TASK_ID + "='" + taskid + "'"+ " ORDER BY " +
+                ImageModel.COLUMN_TIMESTAMP + " DESC";
+
+        SQLiteDatabase db = this.databaseHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                ImageModel note = new ImageModel();
+                note.setId(cursor.getInt(cursor.getColumnIndex(ImageModel.COLUMN_ID)));
+                note.setTaskId(cursor.getInt(cursor.getColumnIndex(ImageModel.COLUMN_TASK_ID)));
+                note.setImage(cursor.getBlob(cursor.getColumnIndex(ImageModel.COLUMN_IMAGE_NAME)));
+                note.setTimestamp(cursor.getString(cursor.getColumnIndex(ImageModel.COLUMN_TIMESTAMP)));
+
+                notes.add(note);
+            } while (cursor.moveToNext());
+        }
+
+        // close db connection
+        db.close();
+
+        // return notes list
+        return notes;
     }
 }

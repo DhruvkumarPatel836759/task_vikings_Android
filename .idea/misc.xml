@@ -30,7 +30,6 @@
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/activity_all_categories.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/activity_all_tags.xml" value="0.264" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/activity_app_settings.xml" value="0.2359375" />
-        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/activity_audio_recording.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/activity_completed_task.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/activity_completed_todos.xml" value="0.264" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/activity_completed_todos1.xml" value="0.536" />
@@ -41,15 +40,11 @@
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/activity_toadd_task.xml" value="0.17255434782608695" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/add_new_categories_dialog.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/add_new_tag_dialog.xml" value="0.264" />
-        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/add_new_task_dialog.xml" value="0.2359375" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/add_new_todo_dialog.xml" value="0.264" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/completed_task_options.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/content_main.xml" value="0.27113702623906705" />
-        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_all_categories_layout.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_all_tags_layout.xml" value="0.25" />
-        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_completed_task_layout.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_completed_todo_layout.xml" value="0.4" />
-        <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_pending_task_layout.xml" value="0.536" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_pending_todo_layout.xml" value="0.4" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/custom_toolbar_layout.xml" value="0.25" />
         <entry key="..\:/Users/A S U S  S T R I X/AndroidStudioProjects/task_vikings_Android/app/src/main/res/layout/edit_tag_dialog.xml" value="0.4" />
@@ -74,7 +69,7 @@
         <entry key="app/src/main/res/layout/activity_completed_task.xml" value="0.21014492753623187" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.182518115942029" />
         <entry key="app/src/main/res/layout/add_new_categories_dialog.xml" value="0.21014492753623187" />
-        <entry key="app/src/main/res/layout/add_new_task_dialog.xml" value="0.28319549560546875" />
+        <entry key="app/src/main/res/layout/add_new_task_dialog.xml" value="0.1" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.21014492753623187" />
         <entry key="app/src/main/res/layout/custom_all_categories_layout.xml" value="0.21014492753623187" />
         <entry key="app/src/main/res/layout/custom_completed_task_layout.xml" value="0.21014492753623187" />

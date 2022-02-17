@@ -4,7 +4,11 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.task_vikings_android.models.ImageModel;
 
+/**
+ * Created by asifkhan on 12/29/17.
+ */
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION=1;
@@ -24,6 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_TODO_DATE="todo_date";
     public static final String COL_TODO_TIME="todo_time";
     public static final String COL_TODO_STATUS="todo_status";
+    public static final String COL_FILE_NAME="todo_filename";
     public static final String COL_DEFAULT_STATUS="pending";
     public static final String COL_STATUS_COMPLETED="completed";
 
@@ -38,7 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //creating todos table query
     private static final String CREATE_TODOS_TABLE="CREATE TABLE IF NOT EXISTS " + TABLE_TODO_NAME+"("+
             COL_TODO_ID+" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
-            COL_TODO_TITLE+" TEXT NOT NULL,"+COL_TODO_CONTENT+" TEXT NOT NULL,"+
+            COL_TODO_TITLE+" TEXT NOT NULL,"+COL_FILE_NAME+" TEXT NOT NULL,"+COL_TODO_CONTENT+" TEXT NOT NULL,"+
             COL_TODO_TAG +" INTEGER NOT NULL,"+COL_TODO_DATE+" TEXT NOT NULL,"+
             COL_TODO_TIME+" TEXT NOT NULL,"+COL_TODO_STATUS+" TEXT NOT NULL DEFAULT " + COL_DEFAULT_STATUS+
             ",FOREIGN KEY("+COL_TODO_TAG+") REFERENCES "+TABLE_TAG_NAME+"("+COL_TAG_ID+") ON UPDATE CASCADE ON DELETE CASCADE"+")";
@@ -58,12 +63,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(CREATE_TAGS_TABLE);
         sqLiteDatabase.execSQL(CREATE_TODOS_TABLE);
         sqLiteDatabase.execSQL(FORCE_FOREIGN_KEY);
+        sqLiteDatabase.execSQL(ImageModel.CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(DROP_TAGS_TABLE);
         sqLiteDatabase.execSQL(DROP_TODOS_TABLE);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ImageModel.TABLE_NAME);
         onCreate(sqLiteDatabase);
     }
 }

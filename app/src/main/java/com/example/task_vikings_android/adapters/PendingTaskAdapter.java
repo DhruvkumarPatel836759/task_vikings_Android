@@ -2,18 +2,25 @@ package com.example.task_vikings_android.adapters;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.Spinner;
@@ -21,6 +28,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.task_vikings_android.R;
@@ -28,14 +36,18 @@ import com.example.task_vikings_android.activities.CompletedTasks;
 import com.example.task_vikings_android.activities.MainActivity;
 import com.example.task_vikings_android.helpers.CategoriesDBHelper;
 import com.example.task_vikings_android.helpers.TaskDBHelper;
+import com.example.task_vikings_android.models.ImageModel;
 import com.example.task_vikings_android.models.PendingTaskModel;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
-
+/**
+ * Created by asifkhan on 12/27/17.
+ */
 
 public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.PendingDataHolder>{
     private ArrayList<PendingTaskModel> pendingTaskModels;
@@ -43,6 +55,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
     private String getTagTitleString;
     private CategoriesDBHelper categoriesDBHelper;
     private TaskDBHelper taskDBHelper;
+    ImagesAdapter imagesAdapter;
 
     public PendingTaskAdapter(ArrayList<PendingTaskModel> pendingTaskModels, Context context) {
         this.pendingTaskModels = pendingTaskModels;
@@ -75,7 +88,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
                     public boolean onMenuItemClick(MenuItem menuItem) {
                         switch (menuItem.getItemId()){
                             case R.id.edit:
-                                showDialogEdit(pendingTaskModel.getTodoID());
+                                showDialogEdit(pendingTaskModel.getTodoID(),pendingTaskModel);
                                 return true;
                             case R.id.delete:
                                 showDeleteDialog(pendingTaskModel.getTodoID());
@@ -93,6 +106,64 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
                 showCompletedDialog(pendingTaskModel.getTodoID());
             }
         });
+
+        holder.mShowImagesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<ImageModel> imagesByTask = taskDBHelper.getImagesByTask(pendingTaskModel.getTodoID());
+                Log.e("liST",imagesByTask.size()+"");
+                if(imagesByTask.size()==0){
+                    Toast.makeText(context, "No Images found", Toast.LENGTH_SHORT).show();
+                }else{
+                    setImagesAdapter(imagesByTask);
+                }
+            }
+        });
+
+        holder.btnPly.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(pendingTaskModel.getFileName().equalsIgnoreCase("")){
+                    Toast.makeText(context, "No Audio found", Toast.LENGTH_SHORT).show();
+                }else{
+                    try {
+                        MediaPlayer mediaPlayer=new MediaPlayer();
+                        mediaPlayer.setDataSource(pendingTaskModel.getFileName());
+                        mediaPlayer.prepare();
+                        mediaPlayer.start();
+                        Toast.makeText(context,"recording is Playing ",Toast.LENGTH_LONG).show();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
+
+    private void setImagesAdapter(List<ImageModel> imagesByTask) {
+        showDialog(context,imagesByTask);
+    }
+
+    public  void showDialog(Context context, List<ImageModel> list) {
+        Dialog alertDialog;
+        alertDialog = new Dialog(context);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService( Context.LAYOUT_INFLATER_SERVICE );
+        View view = inflater.inflate(R.layout.image_layout, null);
+
+        RecyclerView mRecyclerView = (RecyclerView) view.findViewById(R.id.mRecyclerView);
+        imagesAdapter=new ImagesAdapter(context,list);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false));
+        mRecyclerView.setAdapter(imagesAdapter);
+        imagesAdapter.notifyDataSetChanged();
+
+
+        alertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE); //this line MUST BE BEFORE setContentView
+        alertDialog.setCanceledOnTouchOutside(true);
+        alertDialog.setCancelable(true);
+        alertDialog.setContentView(view);
+        alertDialog.show();
+        Window window = alertDialog.getWindow();
+        window.setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
     //showing confirmation dialog for deleting the todos
@@ -123,14 +194,14 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
     }
 
     //showing edit dialog for editing todos according to the todoid
-    private void showDialogEdit(final int todoID){
+    private void showDialogEdit(final int todoID, PendingTaskModel pendingTaskModel){
         taskDBHelper =new TaskDBHelper(context);
         categoriesDBHelper =new CategoriesDBHelper(context);
         final AlertDialog.Builder builder=new AlertDialog.Builder(context);
         LayoutInflater layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final View view=layoutInflater.inflate(R.layout.edit_task_dialog,null);
         builder.setView(view);
-
+//        SettingsHelper.applyThemeTextView((TextView)view.findViewById(R.id.edit_todo_dialog_title),context);
         final TextInputEditText todoTitle=(TextInputEditText)view.findViewById(R.id.todo_title);
         final TextInputEditText todoContent=(TextInputEditText)view.findViewById(R.id.todo_content);
         Spinner todoTags=(Spinner)view.findViewById(R.id.todo_tag);
@@ -204,9 +275,8 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
         });
         TextView cancel=(TextView)view.findViewById(R.id.cancel);
         TextView addTodo=(TextView)view.findViewById(R.id.add_new_todo);
-
-
-
+//        SettingsHelper.applyTextColor(cancel,context);
+//        SettingsHelper.applyTextColor(addTodo,context);
         addTodo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -233,7 +303,7 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
                 }else if(isTimeEmpty){
                     todoTime.setError("Todo time required !");
                 }else if(taskDBHelper.updateTodo(
-                        new PendingTaskModel(todoID,getTodoTitle,getTodoContent,String.valueOf(todoTagID),getTodoDate,getTime)
+                        new PendingTaskModel(todoID,getTodoTitle,getTodoContent,String.valueOf(todoTagID),getTodoDate,getTime,pendingTaskModel.getFileName())
                 )){
                     Toast.makeText(context, R.string.todo_title_add_success_msg, Toast.LENGTH_SHORT).show();
                     context.startActivity(new Intent(context,MainActivity.class));
@@ -272,7 +342,8 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
     public class PendingDataHolder extends RecyclerView.ViewHolder {
         TextView todoTitle,todoContent,todoTag,todoDate,todoTime;
         ImageView option,makeCompleted;
-        Button btn_image_button;
+        Button mShowImagesBtn;
+        ImageButton btnPly;
         public PendingDataHolder(View itemView) {
             super(itemView);
             todoTitle=(TextView)itemView.findViewById(R.id.pending_todo_title);
@@ -282,7 +353,8 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
             todoTime=(TextView)itemView.findViewById(R.id.todo_time);
             option=(ImageView)itemView.findViewById(R.id.option);
             makeCompleted=(ImageView)itemView.findViewById(R.id.make_completed);
-
+            mShowImagesBtn=itemView.findViewById(R.id.mShowImagesBtn);
+            btnPly=itemView.findViewById(R.id.btnPly);
         }
     }
 
@@ -291,5 +363,55 @@ public class PendingTaskAdapter extends RecyclerView.Adapter<PendingTaskAdapter.
         pendingTaskModels =new ArrayList<>();
         pendingTaskModels.addAll(newPendingTaskModels);
         notifyDataSetChanged();
+    }
+
+
+
+
+    public class ImagesAdapter extends RecyclerView.Adapter<ImagesAdapter.MyViewHolder> {
+
+        Context context;
+        List<ImageModel> childFeedList;
+
+        public ImagesAdapter(Context context, List<ImageModel> childFeedList) {
+            this.context = context;
+            this.childFeedList = childFeedList;
+        }
+
+        @Override
+        public ImagesAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.images_design, parent, false);
+            return new ImagesAdapter.MyViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(ImagesAdapter.MyViewHolder holder, final int position) {
+            ImageModel ledger = childFeedList.get(position);
+            byte[] image = ledger.getImage();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            holder.mImage.setImageBitmap(bitmap);
+
+
+
+        }
+
+
+        @Override
+        public int getItemCount() {
+            return childFeedList.size();
+        }
+
+
+
+
+        public class MyViewHolder extends RecyclerView.ViewHolder {
+            ImageView mImage;
+            public MyViewHolder(View itemView) {
+                super(itemView);
+
+                mImage = itemView.findViewById(R.id.mImage);
+
+            }
+        }
     }
 }

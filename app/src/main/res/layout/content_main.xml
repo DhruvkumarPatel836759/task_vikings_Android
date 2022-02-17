@@ -41,11 +41,16 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAddTodo"
-        android:src="@drawable/ic__add_new_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="@dimen/floating_button_add_todo_margin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_marginStart="@dimen/floating_button_add_todo_margin"
+        android:layout_marginLeft="@dimen/floating_button_add_todo_margin"
+        android:layout_marginTop="@dimen/floating_button_add_todo_margin"
+        android:layout_marginEnd="@dimen/floating_button_add_todo_margin"
+        android:layout_marginRight="@dimen/floating_button_add_todo_margin"
+        android:layout_marginBottom="@dimen/floating_button_add_todo_margin"
+        android:src="@drawable/ic__add_new_task" />
 
 </RelativeLayout>

@@ -90,16 +90,42 @@
 
 
             <LinearLayout
-                android:layout_gravity="left"
-                android:layout_marginRight="@dimen/todo_dialog_linear_margin_right"
+                android:gravity="center"
+                android:weightSum="2"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <ImageButton
+                    android:id="@+id/btnRcrd"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_start_new" />
+
+                <ImageButton
+                    android:visibility="gone"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/btnStp"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/ic_stop"
+                    />
+
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/todo_dialog_linear_margin_top"
                 android:layout_marginBottom="@dimen/todo_dialog_linear_margin_bottom"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
                 <Button
+                    android:textColor="@android:color/white"
+                    android:background="@color/colorPrimary"
                     android:id="@+id/mUploadImg"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -108,16 +134,25 @@
 
                 </Button>
 
-                <Button
-                    android:id="@+id/mShowImg"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="1"
-                    android:text="Show Image">
-
-                </Button>
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageSelected"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:elevation="3dp"
+                android:src="@drawable/ic_no_categories_icon" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="gone"
+                android:id="@+id/rvList"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_margin="10dp"
+                android:elevation="3dp"/>
 
 
             <LinearLayout

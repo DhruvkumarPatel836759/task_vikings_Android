@@ -37,6 +37,7 @@ public class CompletedTasks extends AppCompatActivity {
         setContentView(R.layout.activity_completed_task);
         setSupportActionBar(findViewById(R.id.toolbar));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        SettingsHelper.applyThemeToolbar(findViewById(R.id.toolbar),this);
         setTitle(getString(R.string.complete_todo_activity_title));
         loadCompletedTodos();
     }

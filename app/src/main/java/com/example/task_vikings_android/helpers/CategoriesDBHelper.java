@@ -10,6 +10,9 @@ import com.example.task_vikings_android.models.CategoriesModel;
 
 import java.util.ArrayList;
 
+/**
+ * Created by asifkhan on 12/29/17.
+ */
 
 public class CategoriesDBHelper {
     private Context context;
