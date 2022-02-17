@@ -6,8 +6,8 @@
 
     <ImageView
         android:id="@+id/mImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp">
+        android:layout_width="320dp"
+        android:layout_height="257dp">
 
     </ImageView>
 

@@ -103,9 +103,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setTitle(getString(R.string.app_title));
         loadPendingTodos();
 
-
-
-
     }
 
     //loading all the pending todos
